@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -8,4 +12,14 @@ body {
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+#root {
+    display: flex;
+    background-color: hsla(0, 0%, 0%, 0.922);
+    color: white;
+}
+
+.-bg-rect {
+    background-color: rgba(255, 255, 255, 0.093)
 }
