@@ -1,27 +1,25 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar.js";
-import Home from "./components/home/Home";
-import Learn from "./components/learn/Learn";
-import Texts from "./components/texts/Texts";
-import Videos from "./components/videos/Videos";
-import Music from "./components/music/Music";
-import Settings from "./components/settings/Settings";
-import Profile from "./components/profile/Profile";
+import { menus, capitalize, components, get_imported } from "./general.js";
 
+const menuComponents = {};
+for (const menu of menus.flat()) {
+  menuComponents[menu] = (
+    await import(`./components/${menu}/${capitalize(menu)}.js`)
+  ).default;
+}
 
 function App() {
   return (
     <>
       <Navbar></Navbar>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/learn" element={<Learn />} />
-        <Route path="/texts" element={<Texts />} />
-        <Route path="/videos" element={<Videos />} />
-        <Route path="/music" element={<Music />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/profile" element={<Profile />} />
+        {components(menus.flat(), Route, {
+          props: (menu) => ({
+            path: "/" + menu,
+            element: menuComponents[menu],
+          }),
+        })}
       </Routes>
     </>
   );

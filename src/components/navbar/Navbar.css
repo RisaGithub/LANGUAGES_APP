@@ -18,12 +18,14 @@ nav div {
 
 nav img {
   width: 100%;
+  transition: 0.3s;
 }
 
 nav img:hover {
+  transition: 0.3s;
   transform: scale(1.2);
 }
 
 nav .not-active {
-  filter: invert(50%);
+  opacity: 50%;
 }
