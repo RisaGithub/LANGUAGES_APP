@@ -13,7 +13,7 @@ function App() {
       <Routes>
         {components(menus, (menu) => [
           Route,
-          { path: "/" + menu, element: menuComponents[menu] },
+          { path: "/" + menu, element: menuComponents[menu]() },
         ])}
       </Routes>
     </>
