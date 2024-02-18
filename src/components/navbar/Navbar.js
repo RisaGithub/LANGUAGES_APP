@@ -1,27 +1,34 @@
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
-import { menus, capitalize, components, get_imported } from "../../general";
+import {
+  menus,
+  menuGroups,
+  capitalize,
+  components,
+  get_imported,
+} from "../../general";
 
-const icons = {};
-for (const menu of menus.flat()) {
-  icons[menu] = (await import(`./icons/${menu}.png`)).default;
-}
+const icons = await get_imported(menus, (menu) =>
+  import(`./icons/${menu}.png`)
+);
 
 function Navbar() {
+  const get_menu_items = (menu) => [
+    NavLink,
+    {
+      to: "/" + menu,
+      className: ({ isActive }) => (isActive ? "" : "not-active"),
+    },
+    <img src={icons[menu]} alt={capitalize(menu)}></img>,
+  ];
+
   return (
     <nav className="-bg-rect">
-      {components(menus, "div", {
-        content: (group) =>
-          components(group, NavLink, {
-            props: (menu) => ({
-              to: "/" + menu,
-              className: ({ isActive }) => (isActive ? "" : "not-active"),
-            }),
-            content: (menu) => (
-              <img src={icons[menu]} alt={capitalize(menu)}></img>
-            ),
-          }),
-      })}
+      {components(menuGroups, (group) => [
+        "div",
+        {},
+        components(group, get_menu_items),
+      ])}
     </nav>
   );
 }
