@@ -1,7 +1,14 @@
+import Translator from "./translator/Translator";
+import "./Home.css";
+
 function Home() {
     return (
-        <div>
-            Home
+        <div id="home">
+            <div>
+                {" "}
+                <Translator></Translator>
+                <div></div>
+            </div>
         </div>
     );
 }

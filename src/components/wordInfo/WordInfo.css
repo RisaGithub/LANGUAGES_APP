@@ -1,0 +1,86 @@
+.-tags {
+  display: flex;
+  gap: 10px;
+}
+
+.-tag {
+  border-radius: 10px;
+  padding: 3px 10px;
+  color: var(--blue);
+  cursor: pointer;
+  transition: 0.15s;
+  font-size: 17px;
+}
+
+.-tag:hover {
+  scale: 1.1;
+  text-shadow: 0 0 2px;
+}
+
+.-pronunciations-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.-pronunciations-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.-pronunciation {
+  padding-bottom: 5px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 22px;
+  transition: 0.15s;
+}
+
+.-pronunciation:hover {
+  cursor: pointer;
+  opacity: 1;
+  scale: 1.05;
+  margin-left: 10px;
+}
+
+.-pronunciation img {
+  width: 25px;
+  margin-left: 5px;
+  margin-bottom: -6px;
+  opacity: 0.8;
+}
+
+.-translation {
+  width: min-content;
+  padding: 3px 15px;
+  border-radius: 10px;
+  transition: 0.2s;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 20px;
+}
+
+.-translation:hover {
+  cursor: pointer;
+  scale: 1.05;
+}
+
+.-frequency-wrapper {
+  margin-top: 4px;
+  margin-bottom: -2px;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.-frequency-wrapper div {
+  height: 3px;
+  width: 10px;
+  background-color: aqua;
+  border-radius: 3px;
+}
+
+.-active:hover {
+  scale: 1;
+  text-shadow: none;
+  cursor: default;
+}

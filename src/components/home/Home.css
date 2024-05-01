@@ -1,0 +1,16 @@
+#home,
+#home > div,
+#home .-translator {
+  height: 100%;
+  width: 100%;
+}
+
+#home {
+  padding: 30px;
+}
+
+#home .-translator {
+  width: 50%;
+  min-width: 220px;
+  max-width: 500px;
+}
